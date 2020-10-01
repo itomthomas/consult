@@ -652,6 +652,13 @@ section {
   height: 44px;
 }
 
+/* Tom addition - Hover Link */
+.contact .php-email-form .checkME {
+  height: 0.1px;
+  padding-bottom: 0.1px;
+  transform: scale(0);
+}
+
 .contact .php-email-form textarea {
   padding: 10px 12px;
 }

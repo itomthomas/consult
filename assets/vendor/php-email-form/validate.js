@@ -47,6 +47,12 @@
             }
             break;
 
+          case 'phony':
+            if (i.val() !== 'phony') {
+              ferror = ierror = true;
+            }
+            break;
+
           case 'checked':
             if (! i.is(':checked')) {
               ferror = ierror = true;
