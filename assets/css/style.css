@@ -574,6 +574,10 @@ section {
   color: #45505b;
 }
 
+.contact .info p.rev { unicode-bidi:bidi-override; direction:rtl; margin-top: 2px; padding: 0 0 0 60px;}
+.contact .info p.rev.phone:before { content:"eviF.eerhTelbuoD" }
+.contact .info p.rev.phone:after { content:".xiS.5483.neveSelbuoD" }
+
 .contact .info p {
   padding: 0 0 0 60px;
   margin-bottom: 0;
@@ -581,8 +585,8 @@ section {
   color: #728394;
 }
 
-.contact .info .email, .contact .info .phone {
-  margin-top: 40px;
+.contact .info .email, .contact .info .phone, .contact .info .address{
+  margin-top: 20px;
 }
 
 .contact .info .email:hover i, .contact .info .address:hover i, .contact .info .phone:hover i {
