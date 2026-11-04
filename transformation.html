@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Transformation Showcase</title>
+  <meta name="description" content="How a rigid, code-locked psychometric test platform was rebuilt as a mobile-first, Google Sheets–powered, self-serve website — at near-zero running cost." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --brand-ink: #101828;
+      --brand-mut: #475467;
+      --brand-accent: #16a34a;
+      --brand-accent-2: #0ea5e9;
+      --brand-warn: #dc2626;
+      --soft: #f8fafc;
+    }
+    html { scroll-behavior: smooth; }
+    body { color: var(--brand-mut); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+
+    .navbar { backdrop-filter: blur(10px); background: rgba(255,255,255,.85); }
+
+    .hero {
+      background:
+        radial-gradient(1200px 500px at 10% -10%, rgba(22,163,74,.12), transparent 60%),
+        radial-gradient(900px 400px at 90% 0%, rgba(14,165,233,.12), transparent 60%),
+        var(--soft);
+    }
+    .display-hero { font-weight: 800; color: var(--brand-ink); letter-spacing: -.02em; }
+    .lead-xl { font-size: clamp(1.05rem, 1.4vw + .7rem, 1.3rem); }
+
+    .eyebrow {
+      text-transform: uppercase; letter-spacing: .12em; font-weight: 700;
+      font-size: .75rem; color: var(--brand-accent);
+    }
+
+    .card { border: 1px solid #e6ebf1; border-radius: 1rem; }
+    .stat-card { border-radius: 1rem; }
+    .stat-num { font-size: clamp(1.8rem, 2.5vw + 1rem, 2.8rem); font-weight: 800; color: var(--brand-ink); line-height: 1; }
+
+    .savings-badge { font-weight: 700; }
+
+    .compare-old .card-header, .compare-new .card-header { font-weight: 700; }
+    .compare-old .card-header { background: #fef2f2; color: var(--brand-warn); border-bottom: 1px solid #fecaca; }
+    .compare-new .card-header { background: #f0fdf4; color: var(--brand-accent); border-bottom: 1px solid #bbf7d0; }
+    .compare-old li::marker { color: var(--brand-warn); }
+    .compare-new li::marker { color: var(--brand-accent); }
+
+    .flow-step {
+      border-left: 4px solid var(--brand-accent-2);
+      border-radius: .75rem;
+    }
+    .flow-step .step-num {
+      width: 2rem; height: 2rem; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--brand-accent-2); color: #fff; font-weight: 700; font-size: .9rem;
+    }
+
+    .video-shell {
+      border-radius: 1rem; overflow: hidden; background: #0b1220;
+      aspect-ratio: 9 / 16; max-width: 380px; margin-inline: auto;
+      display: flex; align-items: center; justify-content: center;
+    }
+    @media (min-width: 768px) {
+      .video-shell { aspect-ratio: 16 / 9; max-width: 720px; }
+    }
+    .video-shell video, .video-shell iframe { width: 100%; height: 100%; object-fit: cover; }
+    .video-fallback { color: #94a3b8; text-align: center; padding: 1.5rem; }
+
+    .stack-chip {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .45rem .8rem; border-radius: 999px;
+      background: #fff; border: 1px solid #e2e8f0;
+      font-weight: 600; font-size: .9rem; color: var(--brand-ink);
+    }
+
+    .quote { font-size: clamp(1.1rem, 1vw + .9rem, 1.4rem); color: var(--brand-ink); font-weight: 600; }
+
+    .faq .accordion-button:not(.collapsed) { color: var(--brand-ink); background: var(--soft); }
+
+    footer a { text-decoration: none; }
+
+    /* tiny utility for the score strip */
+    .score-strip { background: linear-gradient(90deg, #0f172a, #134e4a); }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar navbar-expand-lg sticky-top border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#top">
+        <i class="bi bi-arrow-left-right text-success me-1"></i> Clunky&nbsp;&rarr;&nbsp;Click
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#story">Story</a></li>
+          <li class="nav-item"><a class="nav-link" href="#savings">Savings</a></li>
+          <li class="nav-item"><a class="nav-link" href="#before-after">Before &amp; After</a></li>
+          <li class="nav-item"><a class="nav-link" href="#video">Old Site Video</a></li>
+          <li class="nav-item"><a class="btn btn-success ms-lg-2" href="#stack">Tech Stack</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header id="top" class="hero py-5">
+    <div class="container py-lg-5">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <p class="eyebrow mb-2">Digital Transformation &middot; Sole Business Owner</p>
+          <h1 class="display-hero display-5 mb-3">
+            From a rigid, code-locked website to a
+            <span class="text-success">mobile-first</span>,
+            <span class="text-primary">self-serve</span> business.
+          </h1>
+          <p class="lead lead-xl mb-4">
+            The psychometric test offering was rebuilt end-to-end: a clunky, multi-page,
+            Node + React monolith on an expensive VPS became a fast, static Astro + Bootstrap 5.3
+            site — where packages, pricing and questions are tweaked from
+            <strong>Google Sheets</strong>, not from a developer's keyboard.
+          </p>
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="stack-chip"><i class="bi bi-file-earmark-spreadsheet text-success"></i> Google Sheets</span>
+            <span class="stack-chip"><i class="bi bi-lightning-charge text-warning"></i> Google Apps Script</span>
+            <span class="stack-chip"><i class="bi bi-bootstrap text-primary"></i> Astro + Bootstrap 5.3</span>
+            <span class="stack-chip"><i class="bi bi-shield-lock text-secondary"></i> Token-based access</span>
+            <span class="stack-chip"><i class="bi bi-cloud-check text-info"></i> Netlify hosting</span>
+          </div>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#savings" class="btn btn-success btn-lg px-4">See the cost savings</a>
+            <a href="#before-after" class="btn btn-outline-secondary btn-lg px-4">Before &amp; after</a>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card shadow-sm">
+            <div class="card-body p-4">
+              <p class="eyebrow mb-3">At a glance</p>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <div class="fw-bold text-dark">Monthly infra cost</div>
+                  <div class="small text-muted">VPS rental &rarr; static hosting</div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bold text-danger">&#8377;3,000</div>
+                  <div class="small text-success fw-bold">&#8377;0 <i class="bi bi-arrow-down"></i></div>
+                </div>
+              </div>
+              <hr class="my-2">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <div class="fw-bold text-dark">Page navigation</div>
+                  <div class="small text-muted">Slower pages &rarr; Fast Loading</div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bold text-danger">Multi-page</div>
+                  <div class="small text-success fw-bold">Impactful</div>
+                </div>
+              </div>
+              <hr class="my-2">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                  <div class="fw-bold text-dark">Business logic</div>
+                  <div class="small text-muted">Buried in code &rarr; G-Sheets</div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bold text-danger">Developer</div>
+                  <div class="small text-success fw-bold">Owner</div>
+                </div>
+              </div>
+              <hr class="my-2">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="fw-bold text-dark">Packages sold</div>
+                  <div class="small text-muted">Fixed sets &rarr; custom packs</div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-bold text-danger">Rigid</div>
+                  <div class="small text-success fw-bold">Flexible</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ SCORE STRIP ============ -->
+  <section class="score-strip text-white py-4">
+    <div class="container">
+      <div class="row text-center g-4">
+        <div class="col-6 col-md-3">
+          <div class="fs-1 fw-bold">100%</div>
+          <div class="small opacity-75">infrastructure cost eliminated</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="fs-1 fw-bold">&#8377;36,000</div>
+          <div class="small opacity-75">saved per year on VPS rent</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="fs-1 fw-bold">0</div>
+          <div class="small opacity-75">servers / DB / Infra</div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="fs-1 fw-bold">&infin;</div>
+          <div class="small opacity-75">package &amp; question tweaks, self-serve</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE STORY ============ -->
+  <section id="story" class="py-5">
+    <div class="container py-lg-4">
+      <div class="row justify-content-center text-center mb-4">
+        <div class="col-lg-8">
+          <p class="eyebrow">The story</p>
+          <h2 class="fw-bold display-6">A one-person business, run like a product team</h2>
+          <p class="lead">
+            The owner sells counselling session with psychometric tests as small, affordable packages. The old site made that
+            hard: fixed question sets, a handful of fixed packages, and every change — even a price —
+            locked inside source code on a rented server.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="fs-3 text-danger mb-2"><i class="bi bi-file-code"></i></div>
+              <h5 class="fw-bold">Business logic in code</h5>
+              <p class="small mb-0">Packages, pricing and question sets were hard-wired. No cost-effective way for the owner to change what he sells.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="fs-3 text-danger mb-2"><i class="bi bi-server"></i></div>
+              <h5 class="fw-bold">A server to babysit</h5>
+              <p class="small mb-0">Node + React + MongoDB all on one MilesWeb VPS at &#8377;3,000/month — patching, deploys and downtime were the owner's problem.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="fs-3 text-danger mb-2"><i class="bi bi-phone"></i></div>
+              <h5 class="fw-bold">Text-heavy, mobile-clunky</h5>
+              <p class="small mb-0">Dense textual pages and navigation across multiple screens — exactly the experience mobile visitors bounce off.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="fs-3 text-danger mb-2"><i class="bi bi-lock"></i></div>
+              <h5 class="fw-bold">Rigid test workflow</h5>
+              <p class="small mb-0">A fixed set of questions that could not be tweaked, packaged or priced in smaller, customer-friendly bundles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-lg-9">
+          <div class="alert alert-success d-flex gap-3 align-items-start" role="alert">
+            <i class="bi bi-arrow-repeat fs-4"></i>
+            <div>
+              The rebuild inverts all of it: the <strong>website is static and free to host</strong>,
+              the <strong>backend is a Google Sheet</strong> the owner already knows how to use, and the
+              <strong>customer picks a custom package</strong> from the site itself — backed by
+              token-based access for secure test delivery.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COST SAVINGS ============ -->
+  <section id="savings" class="py-5 bg-light">
+    <div class="container py-lg-4">
+      <div class="row justify-content-center text-center mb-4">
+        <div class="col-lg-8">
+          <p class="eyebrow">Cost savings</p>
+          <h2 class="fw-bold display-6">The maths a solo owner actually feels</h2>
+          <p class="lead">Same product. Same customers. Radically lower running cost — and no developer on retainer.</p>
+        </div>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="card stat-card h-100 border-danger-subtle">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge text-bg-danger">Before</span>
+                <span class="savings-badge text-danger">Old stack</span>
+              </div>
+              <div class="stat-num mb-1">&#8377;3,000<span class="fs-6 fw-normal text-muted">/month</span></div>
+              <p class="small mb-3">MilesWeb VPS rental — Node, React and MongoDB all on one box.</p>
+              <ul class="small mb-0">
+                <li class="text-dark">&#8377;36,000 / year, fixed</li>
+                <li>Plus developer time for every content or price change</li>
+                <li>Downtime, backups and security = owner's headache</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card stat-card h-100 border-success-subtle">
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge text-bg-success">After</span>
+                <span class="savings-badge text-success">New stack</span>
+              </div>
+              <div class="stat-num mb-1">&#8377;0<span class="fs-6 fw-normal text-muted">/month</span>*</div>
+              <p class="small mb-3">Netlify free static hosting + Google Sheets &amp; Apps Script free tier.</p>
+              <ul class="small mb-0">
+                <li class="text-dark">Hosting, DB, and compute — all in free tiers</li>
+                <li>Content &amp; package changes are owner self-serve</li>
+                <li>No server to patch, no DB to back up, no deploys to babysit</li>
+              </ul>
+              <p class="small text-muted mt-2 mb-0">*Domain registration is the only recurring cost.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card h-100 text-white" style="background:#134e4a">
+            <div class="card-body p-4 d-flex flex-column">
+              <div class="mb-2"><span class="badge text-bg-light text-success">Net saving</span></div>
+              <div class="stat-num mb-1">&#8377;36,000<span class="fs-6 fw-normal opacity-75">/year</span></div>
+              <p class="small opacity-75 mb-3">Infrastructure rent alone — before counting developer hours saved on every tweak.</p>
+              <hr class="border-light opacity-25">
+              <ul class="small mb-0">
+                <li class="mb-1"><i class="bi bi-check-circle me-1"></i> 100% infra cost eliminated</li>
+                <li class="mb-1"><i class="bi bi-check-circle me-1"></i> Zero-deploy content updates</li>
+                <li class="mb-1"><i class="bi bi-check-circle me-1"></i> Scales by editing a row, not a server</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle bg-white shadow-sm" style="border-radius:.75rem; overflow:hidden;">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">Aspect</th>
+                  <th scope="col">Old stack (VPS)</th>
+                  <th scope="col">New stack (Sheets + Netlify)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Monthly cost</td><td>&#8377;3,000 fixed rent</td><td class="text-success fw-bold">&#8377;0 (free tiers + domain)</td></tr>
+                <tr><td>Backend / database</td><td>MongoDB on the same VPS</td><td>Google Sheets as the database</td></tr>
+                <tr><td>Business logic</td><td>Embedded in code</td><td>Driven from Sheets — owner-editable</td></tr>
+                <tr><td>Packages &amp; pricing</td><td>Fixed sets, code changes needed</td><td>Custom package selection on the site</td></tr>
+                <tr><td>Test content</td><td>Rigid, non-tweakable questions</td><td>Tweak questions &amp; packs from Sheets</td></tr>
+                <tr><td>Deployment</td><td>Manual builds &amp; uploads</td><td>Netlify auto-deploys on git push</td></tr>
+                <tr><td>Mobile experience</td><td>Multi-page, text-heavy</td><td>Mobile-first, single-page modern UI</td></tr>
+                <tr><td>Security</td><td>Self-managed server</td><td>Token-based access, HTTPS by default</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEFORE / AFTER ============ -->
+  <section id="before-after" class="py-5">
+    <div class="container py-lg-4">
+      <div class="row justify-content-center text-center mb-4">
+        <div class="col-lg-8">
+          <p class="eyebrow">Experience</p>
+          <h2 class="fw-bold display-6">Textual clunkiness &rarr; mobile-first clarity</h2>
+          <p class="lead">The old site forced visitors to hop across multiple dense pages. The new one gets them to the right test, in the right package, on one screen.</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card compare-old h-100">
+            <div class="card-header d-flex align-items-center gap-2">
+              <i class="bi bi-phone"></i> Old — unorganized, slow
+            </div>
+            <div class="card-body">
+              <ul class="mb-0 small">
+                <li>Navigation across multiple pages just to reach a test</li>
+                <li>Text-heavy layouts that read like documents, not apps</li>
+                <li>Rigid question sets — nothing could be tweaked or bundled</li>
+                <li>Fixed packages; no smaller, customer-friendly cost packs</li>
+                <li>Every business change required a code change and a redeploy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card compare-new h-100">
+            <div class="card-header d-flex align-items-center gap-2">
+              <i class="bi bi-phone-fill"></i> New — built mobile-first, fast
+            </div>
+            <div class="card-body">
+              <ul class="mb-0 small">
+                <li>Modern, responsive single-page flow built with Bootstrap 5.3</li>
+                <li>Customer picks the test and a custom package on the site</li>
+                <li>Owner tweaks questions, packs and prices from Google Sheets</li>
+                <li>Secure token-based access keeps paid tests protected</li>
+                <li>Static on Netlify — fast loads, HTTPS, zero server ops</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New workflow -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3 class="fw-bold text-center mb-4">The new customer &amp; owner workflow</h3>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="flow-step bg-light p-3 h-100">
+            <span class="step-num mb-2">1</span>
+            <h6 class="fw-bold mt-2 mb-1">Owner curates in Sheets</h6>
+            <p class="small mb-0">Questions, packages and prices live as rows in Google Sheets — the single source of truth.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="flow-step bg-light p-3 h-100">
+            <span class="step-num mb-2">2</span>
+            <h6 class="fw-bold mt-2 mb-1">GAS serves it live</h6>
+            <p class="small mb-0">Google Apps Script exposes the sheet data as a lightweight backend API for the site.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="flow-step bg-light p-3 h-100">
+            <span class="step-num mb-2">3</span>
+            <h6 class="fw-bold mt-2 mb-1">Customer self-selects</h6>
+            <p class="small mb-0">On the mobile-first site, the buyer chooses a test and builds a custom package that fits their budget.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="flow-step bg-light p-3 h-100">
+            <span class="step-num mb-2">4</span>
+            <h6 class="fw-bold mt-2 mb-1">Token unlocks the test</h6>
+            <p class="small mb-0">Token-based access delivers the paid test securely — no accounts, no admin burden for a solo owner.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIDEO ============ -->
+  <section id="video" class="py-5 bg-light">
+    <div class="container py-lg-4">
+      <div class="row justify-content-center text-center mb-4">
+        <div class="col-lg-8">
+          <p class="eyebrow">Proof</p>
+          <h2 class="fw-bold display-6">Watch the old website on mobile</h2>
+          <p class="lead">A screen-recorded walk-through of the original site: page after page of navigation before reaching anything useful.</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="video-shell">
+            <!-- SUCCESS: Replaced the fallback with the actual working video tag -->
+            <video width="100%" height="auto" controls preload="metadata">
+              <source src="assets/img/TransformationVideo.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p class="text-center small text-muted mt-3 mb-0">
+            <i class="bi bi-info-circle me-1"></i>
+            The old site spread one offering across many pages — the new site needs one.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section id="stack" class="py-5">
+    <div class="container py-lg-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <p class="eyebrow">Technology</p>
+          <h2 class="fw-bold display-6 mb-3">Boring, cheap tech — on purpose</h2>
+          <p class="lead">
+            For a sole owner, the best stack is the one he can operate alone.
+            Everything chosen here is either free, or something he already uses daily.
+          </p>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Zero servers, zero databases, zero dev-ops</li>
+            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Business logic lives in a spreadsheet, not source code</li>
+            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Tokens keep paid content secure without user accounts</li>
+            <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i> Git push = instant deploy via Netlify</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="card h-100 text-center">
+                <div class="card-body py-4">
+                  <div class="fs-2 text-success"><i class="bi bi-file-earmark-spreadsheet"></i></div>
+                  <h6 class="fw-bold mt-2 mb-0">Google Sheets</h6>
+                  <p class="small text-muted mb-0">Owner's backend &amp; CMS</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card h-100 text-center">
+                <div class="card-body py-4">
+                  <div class="fs-2 text-warning"><i class="bi bi-lightning-charge"></i></div>
+                  <h6 class="fw-bold mt-2 mb-0">Apps Script</h6>
+                  <p class="small text-muted mb-0">Serverless business logic</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card h-100 text-center">
+                <div class="card-body py-4">
+                  <div class="fs-2 text-primary"><i class="bi bi-rocket-takeoff"></i></div>
+                  <h6 class="fw-bold mt-2 mb-0">Astro</h6>
+                  <p class="small text-muted mb-0">Fast static pages</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card h-100 text-center">
+                <div class="card-body py-4">
+                  <div class="fs-2 text-info"><i class="bi bi-bootstrap"></i></div>
+                  <h6 class="fw-bold mt-2 mb-0">Bootstrap 5.3+</h6>
+                  <p class="small text-muted mb-0">Mobile-first UI</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card h-100 text-center">
+                <div class="card-body py-4">
+                  <div class="fs-2 text-danger"><i class="bi bi-shield-lock"></i></div>
+                  <h6 class="fw-bold mt-2 mb-0">Token access</h6>
+                  <p class="small text-muted mb-0">Secure test delivery</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="card h-100 text-center">
+                <div class="card-body py-4">
+                  <div class="fs-2 text-secondary"><i class="bi bi-cloud-check"></i></div>
+                  <h6 class="fw-bold mt-2 mb-0">Netlify</h6>
+                  <p class="small text-muted mb-0">Free static hosting</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFITS / FAQ ============ -->
+  <section class="py-5 bg-light">
+    <div class="container py-lg-4">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <p class="eyebrow">Core benefits for the sole owner</p>
+          <h2 class="fw-bold display-6 mb-4">What the owner actually gains</h2>
+          <div class="d-flex mb-3">
+            <i class="bi bi-wallet2 fs-4 text-success me-3"></i>
+            <div>
+              <h6 class="fw-bold mb-1">Cost control</h6>
+              <p class="small mb-0">No monthly VPS rent, no developer needed for routine tweaks — &#8377;36,000+/year back in the business.</p>
+            </div>
+          </div>
+          <div class="d-flex mb-3">
+            <i class="bi bi-sliders fs-4 text-success me-3"></i>
+            <div>
+              <h6 class="fw-bold mb-1">Total flexibility</h6>
+              <p class="small mb-0">Tweak questions, reshape packages and change pricing from Google Sheets in minutes — the flexibility the old rigid workflow never allowed.</p>
+            </div>
+          </div>
+          <div class="d-flex mb-3">
+            <i class="bi bi-people fs-4 text-success me-3"></i>
+            <div>
+              <h6 class="fw-bold mb-1">Customer-driven selling</h6>
+              <p class="small mb-0">Buyers choose smaller, custom cost packs that fit their budget — opening the product to customers the fixed packages excluded.</p>
+            </div>
+          </div>
+          <div class="d-flex mb-3">
+            <i class="bi bi-phone fs-4 text-success me-3"></i>
+            <div>
+              <h6 class="fw-bold mb-1">Mobile-first credibility</h6>
+              <p class="small mb-0">A modern single-page experience replaces page-hopping and textual walls — where most customers actually browse.</p>
+            </div>
+          </div>
+          <div class="d-flex">
+            <i class="bi bi-shield-check fs-4 text-success me-3"></i>
+            <div>
+              <h6 class="fw-bold mb-1">Security without ops</h6>
+              <p class="small mb-0">Token-based access and managed hosting mean no server to patch and no database to back up — alone.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="fw-bold display-6 mb-4">Quick answers</h2>
+          <div class="accordion faq" id="faq">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f1">
+                  Is Google Sheets really reliable as a backend?
+                </button>
+              </h2>
+              <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faq">
+                <div class="accordion-body small">
+                  For a low-volume, high-value product like psychometric tests — absolutely. Sheets handles the
+                  data volume easily, is always backed up by Google, and is a tool the owner already
+                  knows. Apps Script serves it as a JSON API to the static site.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f2">
+                  What happens if a test package sells out or a price changes?
+                </button>
+              </h2>
+              <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faq">
+                <div class="accordion-body small">
+                  Edit the row in the sheet — done. No rebuild, no redeploy, no developer. The change is live
+                  the next time the site fetches package data.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f3">
+                  How are paid tests protected without user accounts?
+                </button>
+              </h2>
+              <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faq">
+                <div class="accordion-body small">
+                  Token-based access: each purchase maps to a token that unlocks the test content.
+                  No passwords, no profile management, no admin workload for a one-person business.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#f4">
+                  Why is the new site a single page?
+                </button>
+              </h2>
+              <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faq">
+                <div class="accordion-body small">
+                  The old mobile experience buried the offering under multiple pages of navigation. A single,
+                  section-based page puts the story, packages and test selection one scroll away — which is
+                  exactly how visitors use phones.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA / CLOSING ============ -->
+  <section class="py-5" style="background:#070708;">
+    <div class="container py-lg-3 text-center text-white">
+      <blockquote class="quote mb-4 mx-auto text-white" style="max-width: 46rem;">
+        &ldquo;I stopped paying rent for a server I had to babysit, and started editing a
+        spreadsheet I already understand.&rdquo;
+        <span class="d-block small text-white-50 mt-2 fw-normal">— the transformation, in one line</span>
+      </blockquote>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="#savings" class="btn btn-success btn-lg px-4">Revisit the savings</a>
+        <a href="#before-after" class="btn btn-outline-light btn-lg px-4">See the new experience</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="py-4 border-top bg-white">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <div class="small text-muted">
+        <i class="bi bi-arrow-left-right text-success me-1"></i>
+        Clunky &rarr; Click &middot; A sole-owner digital transformation case study
+      </div>
+      <div class="small text-muted">
+        Stack: Google Sheets &middot; Apps Script &middot; Astro &middot; Bootstrap 5.3 &middot; Netlify
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

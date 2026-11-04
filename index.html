@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Software Automation Consulting</title>
-  <meta name="description" content="Software Automation solutions for your needs. Automate to save time. Your local tech help, tech consultation for every need.">
-  <meta name="keywords" content="Automation, Website Creation, Software Automation, Tech Help, Tech Consultation, GetitAutomated, Get it Automated, Software Creation">
-  <meta name="author" content="Tom Thomas">
-  
-  <link href="assets/css/main.css" rel="stylesheet" />
-  
+
+  <!-- Primary SEO -->
+  <title>Get It Automated — Software Workflow Automation | Tom Thomas</title>
+  <meta name="description" content="Tom Thomas automates the boring parts of your business: Google Sheets automation, lightweight cloud apps, fast websites and Agentic AI integration. Real client results — one project cut infrastructure costs by ₹36,000/year to Zero. Based in Thane, India." />
+  <meta name="author" content="Tom Thomas" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://getitautomated.com/" />
+
   <!-- Favicons -->
   <link href="assets/favicon/favicon.ico" rel="icon">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -17,157 +18,423 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
   <link rel="manifest" href="assets/favicon/site.webmanifest">
 
-  <!-- Google Fonts -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Get It Automated" />
+  <meta property="og:title" content="Get It Automated — I automate the boring parts of your business" />
+  <meta property="og:description" content="Sheets automation, lightweight cloud apps and fast websites for small medium businesses. One client cut ₹36,000/year in infrastructure costs. See how." />
+  <meta property="og:url" content="https://getitautomated.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Get It Automated — I automate the boring parts of your business" />
+  <meta name="twitter:description" content="Sheets automation, cloud apps and fast websites. Real, measurable results." />
+
+  <meta name="theme-color" content="#0f172a" />
+    
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Get It Automated",
+    "description": "Workflow automation, Google Sheets automation, lightweight cloud apps, fast websites and Agentic AI integration for small medium businesses.",
+    "url": "https://getitautomated.com/",
+    "telephone": "+91-DoubleSeven-Three-Eight-456-DoubleThree-Five",
+    "founder": { "@type": "Person", "name": "Tom Thomas", "jobTitle": "Software Automation Consultant" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Thane", "addressRegion": "Maharashtra", "addressCountry": "IN" },
+    "areaServed": "India"
+  }
+  </script>
 </head>
 <body>
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
+
+  <!-- ============ NAV ============ -->
+  <nav class="navbar navbar-expand-lg fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#top" style="font-family:'Montserrat',sans-serif;">
+        <span class="brand-mark"><i class="bi bi-gear-fill"></i></span>
+        Get It Automated
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#work">My Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-acc px-3" href="#contact">Book a free call</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" class="hero">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center">
-          <h2>Your Tech, Simplified</h2>
-          <h3>Get It Automated</h3>
-          <p>Helping businesses and individuals automate workflows, integrate systems, and build lightweight tools using web apps, cloud platforms and Google Sheets.</p>
-          <div>
-            <a href="#services" class="btn-get-started">Explore My Services</a>
+        <div class="col-lg-8">
+          <span class="kicker">Automation &middot; Web &middot; AI — for small medium businesses</span>
+          <h1>I automate the <span class="accent">boring parts</span> of your business.</h1>
+          <p class="hero-sub mt-3 mb-4">
+            I'm Tom Thomas — a software consultant who builds small, sharp tools that save you
+            hours every week: Google Sheets automation, lightweight cloud apps, fast websites
+            and Agentic AI integrations. No bloat, no agency invoices.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="#contact" class="btn btn-acc btn-lg">Get a free consultation</a>
+            <a href="#work" class="btn btn-ghost btn-lg">See my work</a>
           </div>
-        </div>
-        <div class="col-lg-6">
-          <img src="assets/img/hero-img.svg" class="img-fluid" alt="Automation Illustration">
+          <p class="small text-muted mb-0">
+            <i class="bi bi-geo-alt me-1"></i> Based in Thane, India &middot;
+            <i class="bi bi-globe me-1"></i> Working remotely
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-  <div class="container">
-    <div class="section-header">
-      <h2>About ME</h2>
-    </div>
-    <div class="row">
-      <div class="col-lg-6">
-        <img src="assets/img/MeHeadshot.png" class="img-fluid rounded-4" alt="About">
-      </div>
-      <div class="col-lg-6 content">
-        <p>I’m <strong>Tom Thomas</strong>, a software consultant with a passion for simplifying complex technology. My expertise includes automating workflows, integrating diverse software systems, and conducting performance and basic security audits—all aimed at making your business operations more efficient, reliable, and secure.</p>
-        
-        <p>Alongside hands-on experience with all major cloud platforms—AWS, Azure, and Google Cloud Platform (GCP)—I also hold two key certifications:</p>
-        <ul>
-          <li><strong>CKA (Certified Kubernetes Administrator)</strong>, awarded by the <strong>Cloud Native Computing Foundation (CNCF)</strong>, which certifies my ability to build and manage scalable, secure, cloud-native systems and applications.</li>
-          <li><strong>Microsoft Azure Fundamentals</strong>, which validates my skills in deploying and managing solutions in <strong>Microsoft Azure</strong>, one of the most widely adopted enterprise cloud platforms.</li>
-        </ul>
-        
-        <p>While these certifications are technical in nature, their purpose is simple: to ensure your systems are efficient, secure, and scalable, so you can focus on growing your business without worrying about the tech behind it.</p>
-        
-        <p>Whether it's streamlining your workflows with automation, integrating AI solutions, or ensuring your business is secure, my goal is to make technology work for you—easily and effectively.</p>
-         
-        <p>While this is currently a <strong>side project</strong>, I treat every client engagement with the same level of care and professionalism to simplify your tech and help you move with smarter, more secure solutions.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Services Section -->
-  <section id="services" class="services">
+  <!-- ============ PROOF STRIP ============ -->
+  <section class="proof py-4">
     <div class="container">
-      <div class="section-header">
-        <h2>What I Can Help With</h2>
-      </div>
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 service-item">
-          <div class="icon"><i class="bi bi-file-earmark-spreadsheet"></i></div>
-          <h3>Google Sheets Automation</h3>
-          <p>Automate your tasks using Sheets—data sync, alerts, reports, and logic flows, all built for your context.</p>
+      <div class="row text-center g-4">
+        <div class="col-6 col-md-3">
+          <div class="num"><span class="rs">&#8377;</span>44,000+</div>
+          <div class="lbl">yearly hosting costs eliminated across clients</div>
         </div>
-        <div class="col-lg-4 col-md-6 service-item">
-          <div class="icon"><i class="bi bi-cloud"></i></div>
-          <h3>Cloud-Based App Development</h3>
-          <p>Build lightweight apps using Firebase, AWS, Azure or GCP. No-nonsense solutions for real needs.</p>
+        <div class="col-6 col-md-3">
+          <div class="num">0</div>
+          <div class="lbl">servers left for clients to maintain</div>
         </div>
-        <div class="col-lg-4 col-md-6 service-item">
-          <div class="icon"><i class="bi bi-plug"></i></div>
-          <h3>System Integration</h3>
-          <p>Connect your tools—email, forms, payments, reports. If there's a workflow, it can be automated.</p>
+        <div class="col-6 col-md-3">
+          <div class="num">Hours</div>
+          <div class="lbl">of manual work automated weekly</div>
         </div>
-        <div class="col-lg-4 col-md-6 service-item">
-          <div class="icon"><i class="bi bi-globe2"></i></div>
-          <h3>Simple Website Setup</h3>
-          <p>Get a clean, fast-loading site for your project or business. Hosted and configured.</p>
-        </div>
-        <div class="col-lg-4 col-md-6 service-item">
-          <div class="icon"><i class="bi bi-robot"></i></div>
-          <h3>Artificial Intelligence</h3>
-          <p>Integrate intelligent AI solutions to automate decision-making, analyze data patterns, and improve your business operations.</p>
-        </div>
-        <div class="col-lg-4 col-md-6 service-item">
-          <div class="icon"><i class="bi bi-shield-lock"></i></div>
-          <h3>Basic Security Audits</h3>
-          <p>Ensure your systems are secure with a comprehensive audit that identifies vulnerabilities and helps you protect sensitive data.</p>
+        <div class="col-6 col-md-3">
+          <div class="num">3&times;</div>
+          <div class="lbl">cloud knowledge (AWS, Azure, GCP)</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <!-- ============ SERVICES ============ -->
+  <section id="services">
     <div class="container">
-      <div class="section-header">
-        <h2>Contact</h2>
-        <p>Got a task in mind? Let’s talk.</p>
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-7">
+          <span class="kicker">Services</span>
+          <h2 class="mb-3">Four things. Done properly.</h2>
+          <p class="mb-0">I don't do everything — I do a few things extremely well, sized for small medium businesses and solo owners.</p>
+        </div>
       </div>
-      <div class="row gy-4">
-        <div class="col-lg-6">
-          <div class="info-item">
-            <i class="bi bi-envelope"></i>
-            <h4>Email:</h4>
-            <p><span>consult</span> <a class='bi bi-at'></a> <span>getitautomated.com</span></p>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="svc">
+            <div class="ic"><i class="bi bi-file-earmark-spreadsheet"></i></div>
+            <h3 class="h5">Google Sheets Automation</h3>
+            <p>Your spreadsheets become lightweight systems: auto-synced data, alerts, reports and business logic — maintained by you, built by me.</p>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="info-item">
-            <i class="bi bi-geo-alt"></i>
-            <h4>Location:</h4>
-            <p>Manpada, Thane(W)</p>
+        <div class="col-md-6">
+          <div class="svc">
+            <div class="ic"><i class="bi bi-cloud-haze2"></i></div>
+            <h3 class="h5">Lightweight Cloud Apps</h3>
+            <p>Small purpose-built apps on Firebase, AWS, Azure or GCP — including secure, cost-effective websites with built-in security hygiene.</p>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="info-item">
-            <i class="bi bi-phone"></i>
-            <h4>Call:</h4>
-              <p>DoubleSeven -38-456- DoubleThree Five</p>
+        <div class="col-md-6">
+          <div class="svc">
+            <div class="ic"><i class="bi bi-arrow-repeat"></i></div>
+            <h3 class="h5">System Integration</h3>
+            <p>Forms, email, payments, calendars, reports — connected so data flows once and appears everywhere, instead of being retyped five times.</p>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="info-item">
-            <i class="bi bi-linkedin"></i>
-            <h4>LinkedIn:</h4>
-            <p><a href="https://www.linkedin.com/in/tomthomasmumbai/">linkedin.com/in/tomthomas</a></p>
+        <div class="col-md-6">
+          <div class="svc">
+            <div class="ic"><i class="bi bi-robot"></i></div>
+            <h3 class="h5">Agentic AI Solutions</h3>
+            <p>AI agents built to do real work: custom Claude Skills, agent harnesses, and n8n workflows that connect your tools and run on demand — research, document handling, reporting, decisions. Not chatbot toys, but hands-off automation.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer id="footer" class="footer">
-  <div class="container text-center">
-    <p>Built by <strong>Tom Thomas</strong> – Automating the boring stuff, one project at a time.</p>
-    <h3>Get It Automated</h3>
-  </div>
-</footer>
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <div id="preloader"></div>
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script> <!-- for scroll up -->
-  <script src="assets/js/main.js"></script>
+  <!-- ============ FLAGSHIP CASE STUDY ============ -->
+  <section id="work" class="bg-light">
+    <div class="container">
+      <div class="case p-4 p-lg-5">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-7">
+            <span class="kicker" style="color:#4ade80;">Featured project</span>
+            <h2 class="mb-3">A testing business, transformed end-to-end</h2>
+            <p class="mb-4">
+              A sole-owner psychometric test business was paying monthly server rent, running
+              a code-locked website, and selling rigid fixed packages. I rebuilt it as a
+              mobile-first platform where the owner edits packages and questions from
+              Google Sheets — the tool he already uses every day.
+            </p>
+            <div class="stat">
+              <div class="v"><span class="rs">&#8377;</span>36,000/year saved</div>
+              <div class="k">VPS rent replaced by free-tier static hosting</div>
+            </div>
+            <div class="stat">
+              <div class="v">Zero infrastructure</div>
+              <div class="k">Node, React &amp; MoChurchDB ops retired entirely</div>
+            </div>
+            <div class="stat">
+              <div class="v">Owner self-serve</div>
+              <div class="k">Packages, pricing &amp; questions editable from Sheets</div>
+            </div>
+            <a class="card-link d-inline-block mt-2" href="transformation.html" target="_blank" rel="noopener">
+              Read the full case study <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+          <div class="col-lg-5">
+            <div class="bg-white rounded-4 p-4 shadow-sm">
+              <p class="kicker mb-2">Stack used</p>
+              <div class="d-flex flex-column gap-2 small" style="color:var(--ink); font-weight:600;">
+                <span><i class="bi bi-file-earmark-spreadsheet me-2 text-success"></i>Google Sheets — the database</span>
+                <span><i class="bi bi-lightning-charge me-2 text-warning"></i>Apps Script — the backend</span>
+                <span><i class="bi bi-rocket-takeoff me-2 text-primary"></i>Astro + Bootstrap — the frontend</span>
+                <span><i class="bi bi-shield-lock me-2 text-danger"></i>Token access — no user accounts</span>
+                <span><i class="bi bi-cloud-check me-2 text-info"></i>Netlify — free hosting</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary projects -->
+      <div class="row g-4 mt-4">
+        <div class="col-md-6">
+          <div class="case-lite">
+            <span class="badge rounded-pill text-bg-light border mb-2">Web project</span>
+            <h3 class="mb-2">Church Website — from <span class="rs">&#8377;</span>8,000/year to free</h3>
+            <p class="small mb-3">
+              A static Church website that was paying yearly hosting rent was rebuilt and moved
+              to a free hosting tier — modern, responsive, and maintained by volunteers
+              without a hosting invoice ever arriving again. <br>
+              <span>Secure, Google account authenticated Member Directory connected with Google Sheets is serving the community well.</span>
+            </p>
+            <div class="mini-stat"><i class="bi bi-check-circle-fill"></i><span><span class="rs">&#8377;</span>8,000/year &rarr; <span class="rs">&#8377;</span>0 — recurring cost fully removed</span></div>
+            <div class="mini-stat"><i class="bi bi-check-circle-fill"></i><span>Zero maintenance burden for non-technical volunteers</span></div>
+            <div class="mini-stat mb-0"><i class="bi bi-check-circle-fill"></i><span>Mobile-friendly design that works on every device</span></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="case-lite">
+            <span class="badge rounded-pill text-bg-light border mb-2">Data project</span>
+            <h3 class="mb-2">Excel Dashboard — LMR reconciliation for 60 ships</h3>
+            <p class="small mb-3">
+              Month-end LMR data for a fleet of 60 ships was scattered across reports.
+              An Excel dashboard now groups it, matches it for duplicates, and recalculates
+              balances per category automatically as each month's data arrives.
+            </p>
+            <div class="mini-stat"><i class="bi bi-check-circle-fill"></i><span>60 ships' maintenance data in one consolidated view</span></div>
+            <div class="mini-stat"><i class="bi bi-check-circle-fill"></i><span>Duplicate LMR entries flagged automatically</span></div>
+            <div class="mini-stat mb-0"><i class="bi bi-check-circle-fill"></i><span>Category balances recompute with every new data drop</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section id="process">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-7">
+          <span class="kicker">How I work</span>
+          <h2 class="mb-3">Simple by design — like the tools I build.</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="step-num">1</div>
+          <h3 class="h5">Free call, plain language</h3>
+          <p class="small">We talk about what's costing you time. I tell you honestly whether automation is worth it — sometimes the answer is "don't build this," and that call is free.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="step-num">2</div>
+          <h3 class="h5">Small build, fast feedback</h3>
+          <p class="small">I ship a working version in days, not months. You use it, we adjust. Tools get better by being used, not by being specified.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="step-num">3</div>
+          <h3 class="h5">You own it, I support it</h3>
+          <p class="small">You get something you can run without me — like editing a spreadsheet. Handover documentation and a support window included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT / CREDIBILITY ============ -->
+  <section class="bg-light">
+    <div class="container">
+      <div class="row align-items-center g-4 g-lg-5">
+        <div class="col-lg-5">
+          <span class="kicker">Who you're working with</span>
+          <h2 class="mb-3">Tom Thomas</h2>
+          <p class="mb-3">
+            <img src="assets/img/MeHeadshot.png" class="img-fluid rounded-4" alt="About">
+          </p>
+        </div>
+        <div class="col-lg-7">
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            Software consultant, passion for simplifying complex technology, CKA-certified Kubernetes administrator, Azure-certified —
+            and, honestly, a one-person operation. <span>That's a feature: you always talk to the
+            person writing your code.</span>
+
+            <span class="cred-badge"><i class="bi bi-patch-check-fill text-primary me-1"></i> CKA — Certified Kubernetes Administrator (CNCF)</span>
+            <span class="cred-badge"><i class="bi bi-patch-check-fill text-info me-1"></i> Microsoft Azure Fundamentals</span>
+            <span class="cred-badge"><i class="bi bi-cloud me-1"></i> Hands-on: AWS &middot; Azure &middot; GCP</span>
+          </div>
+          <p class="small text-muted mb-0">
+            Certifications matter less than outcomes — but they're a shortcut to knowing
+            your systems will be built secure, scalable and maintained, not duct-taped.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-7 text-center">
+          <span class="kicker">FAQ</span>
+          <h2 class="mb-3">Questions I get asked</h2>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="accordion accordion-flush" id="faqAcc">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q1">
+                  What does this cost?
+                </button>
+              </h3>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body small">
+                  Fixed-price per project, quoted after the free call — you'll know the number
+                  before any work starts. Small automations often cost less than a month of the
+                  manual time they replace.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">
+                  Is Google Sheets really a serious backend?
+                </button>
+              </h3>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body small">
+                  For most small-business volumes — absolutely. It's backed up by Google, requires
+                  zero maintenance, and lets <em>you</em> edit your business logic. When volumes outgrow
+                  it, I'll tell you, and the migration path is clean.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q3">
+                  I'm not technical at all. Is that a problem?
+                </button>
+              </h3>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body small">
+                  It's the ideal starting point. My best builds are with owners who can't touch code —
+                  because the whole point is handing you tools you can operate yourself.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q4">
+                  Do you take on big projects?
+                </button>
+              </h3>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body small">
+                  I will evaluate the project and then decide. This is a side practice focused on small, high-impact builds to balance my full-time job commitments.
+                  If your need is bigger than I can serve well, I'll say so — and point you to
+                  someone who can.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="bg-light">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-7">
+          <span class="kicker">Contact</span>
+          <h2 class="mb-3">Got something that eats your time?</h2>
+          <p class="mb-0">One message. Honest answer within a day — even if it's "you don't need me."</p>
+        </div>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-3">
+          <a class="contact-tile" href="mailto:consult@getitautomated.com">
+            <div class="ic mb-2"><i class="bi bi-envelope"></i></div>
+            <h3 class="h6 fw-bold">Email</h3>
+            <p class="small mb-0">consult @ getitautomated.com</p>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <a class="contact-tile" href="tel:+9177384">
+            <div class="ic mb-2"><i class="bi bi-telephone"></i></div>
+            <h3 class="h6 fw-bold">Call</h3>
+            <p class="small mb-0">+91 DoubleSeven 384 Five-Six DoubleThree Five</p>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <a class="contact-tile" href="https://www.linkedin.com/in/tomthomasmumbai/" target="_blank" rel="noopener">
+            <div class="ic mb-2"><i class="bi bi-linkedin"></i></div>
+            <h3 class="h6 fw-bold">LinkedIn</h3>
+            <p class="small mb-0">linkedin.com/in/tomthomas</p>
+          </a>
+        </div>
+      </div>
+      <p class="text-center small text-muted mt-3 mb-0">
+        <i class="bi bi-geo-alt me-1"></i> Manpada, Thane West, Maharashtra, India &middot; working remotely
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <div class="small">
+        <strong class="text-white">Get It Automated</strong> — automating the boring stuff, one project at a time.
+      </div>
+      <div class="small">
+        <a href="#services">Services</a> &middot;
+        <a href="#work">My Work</a> &middot;
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
