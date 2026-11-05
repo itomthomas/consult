@@ -121,16 +121,14 @@
           </h1>
           <p class="lead lead-xl mb-4">
             The psychometric test offering was rebuilt end-to-end: a clunky, multi-page,
-            Node + React monolith on an expensive VPS became a fast, static Astro + Bootstrap 5.3
-            site — where packages, pricing and questions are tweaked from
+            Node + React monolith on a virtual private server(VPS) became a fast, concise, api driven
+            site — where packages, pricing and psychometric questions are tweaked from
             <strong>Google Sheets</strong>, not from a developer's keyboard.
           </p>
           <div class="d-flex flex-wrap gap-2 mb-4">
             <span class="stack-chip"><i class="bi bi-file-earmark-spreadsheet text-success"></i> Google Sheets</span>
-            <span class="stack-chip"><i class="bi bi-lightning-charge text-warning"></i> Google Apps Script</span>
-            <span class="stack-chip"><i class="bi bi-bootstrap text-primary"></i> Astro + Bootstrap 5.3</span>
             <span class="stack-chip"><i class="bi bi-shield-lock text-secondary"></i> Token-based access</span>
-            <span class="stack-chip"><i class="bi bi-cloud-check text-info"></i> Netlify hosting</span>
+            <span class="stack-chip"><i class="bi bi-cloud-check text-info"></i> Free hosting</span>
           </div>
           <div class="d-flex flex-wrap gap-3">
             <a href="#savings" class="btn btn-success btn-lg px-4">See the cost savings</a>
@@ -145,7 +143,7 @@
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <div>
                   <div class="fw-bold text-dark">Monthly infra cost</div>
-                  <div class="small text-muted">VPS rental &rarr; static hosting</div>
+                  <div class="small text-muted">VPS rental &rarr; free hosting</div>
                 </div>
                 <div class="text-end">
                   <div class="fw-bold text-danger">&#8377;3,000</div>
@@ -210,7 +208,7 @@
         </div>
         <div class="col-6 col-md-3">
           <div class="fs-1 fw-bold">&infin;</div>
-          <div class="small opacity-75">package &amp; question tweaks, self-serve</div>
+          <div class="small opacity-75">business logic tweaks, self-serve</div>
         </div>
       </div>
     </div>
@@ -223,9 +221,10 @@
         <div class="col-lg-8">
           <p class="eyebrow">The story</p>
           <h2 class="fw-bold display-6">A one-person business, run like a product team</h2>
+          <a href="https://successteps.in/" target="_blank" rel="noopener noreferrer">https://successteps.in/</a>
           <p class="lead">
             The owner sells counselling session with psychometric tests as small, affordable packages. The old site made that
-            hard: fixed question sets, a handful of fixed packages, and every change — even a price —
+            hard: fixed question sets, a handful of fixed packages, and every change — even a price change —
             locked inside source code on a rented server.
           </p>
         </div>
@@ -323,14 +322,13 @@
                 <span class="badge text-bg-success">After</span>
                 <span class="savings-badge text-success">New stack</span>
               </div>
-              <div class="stat-num mb-1">&#8377;0<span class="fs-6 fw-normal text-muted">/month</span>*</div>
+              <div class="stat-num mb-1">&#8377;0<span class="fs-6 fw-normal text-muted">/month</span></div>
               <p class="small mb-3">Netlify free static hosting + Google Sheets &amp; Apps Script free tier.</p>
               <ul class="small mb-0">
                 <li class="text-dark">Hosting, DB, and compute — all in free tiers</li>
                 <li>Content &amp; package changes are owner self-serve</li>
                 <li>No server to patch, no DB to back up, no deploys to babysit</li>
               </ul>
-              <p class="small text-muted mt-2 mb-0">*Domain registration is the only recurring cost.</p>
             </div>
           </div>
         </div>
@@ -339,7 +337,7 @@
           <div class="card h-100 text-white" style="background:#134e4a">
             <div class="card-body p-4 d-flex flex-column">
               <div class="mb-2"><span class="badge text-bg-light text-success">Net saving</span></div>
-              <div class="stat-num mb-1">&#8377;36,000<span class="fs-6 fw-normal opacity-75">/year</span></div>
+              <div class="stat-num mb-1">&#8377;36,000<span class="fs-6 fw-normal opacity-75 text-white">/year</span></div>
               <p class="small opacity-75 mb-3">Infrastructure rent alone — before counting developer hours saved on every tweak.</p>
               <hr class="border-light opacity-25">
               <ul class="small mb-0">
@@ -485,7 +483,7 @@
           </div>
           <p class="text-center small text-muted mt-3 mb-0">
             <i class="bi bi-info-circle me-1"></i>
-            The old site spread one offering across many pages — the new site needs one.
+            The old site spread multiple offerings across many pages — the new site needs one short page.
           </p>
         </div>
       </div>
@@ -554,7 +552,7 @@
                 <div class="card-body py-4">
                   <div class="fs-2 text-danger"><i class="bi bi-shield-lock"></i></div>
                   <h6 class="fw-bold mt-2 mb-0">Token access</h6>
-                  <p class="small text-muted mb-0">Secure test delivery</p>
+                  <p class="small text-muted mb-0">Strong Security</p>
                 </div>
               </div>
             </div>
@@ -563,7 +561,7 @@
                 <div class="card-body py-4">
                   <div class="fs-2 text-secondary"><i class="bi bi-cloud-check"></i></div>
                   <h6 class="fw-bold mt-2 mb-0">Netlify</h6>
-                  <p class="small text-muted mb-0">Free static hosting</p>
+                  <p class="small text-muted mb-0">Cloud hosting</p>
                 </div>
               </div>
             </div>
@@ -685,9 +683,9 @@
   <section class="py-5" style="background:#070708;">
     <div class="container py-lg-3 text-center text-white">
       <blockquote class="quote mb-4 mx-auto text-white" style="max-width: 46rem;">
-        &ldquo;I stopped paying rent for a server I had to babysit, and started editing a
-        spreadsheet I already understand.&rdquo;
-        <span class="d-block small text-white-50 mt-2 fw-normal">— the transformation, in one line</span>
+        &ldquo;I stopped paying rent for a server even when I didn't need it, and started editing a
+        spreadsheet I already understand for selling custom packages that I can update anytime.&rdquo;
+        <span class="d-block small text-white-50 mt-2 fw-normal">— Dr. Antony Augusthy</span>
       </blockquote>
       <div class="d-flex flex-wrap justify-content-center gap-3">
         <a href="#savings" class="btn btn-success btn-lg px-4">Revisit the savings</a>
