@@ -47,8 +47,8 @@ h1, h2, h3, h4, .display-font {
 }
 .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
 
-section { padding-block: 4.5rem; }
-@media (max-width: 767px) { section { padding-block: 3rem; } }
+section { padding-block: 1.5rem; }
+@media (max-width: 767px) { section { padding-block: 2rem; } }
 
 .kicker {
   display: inline-block;
